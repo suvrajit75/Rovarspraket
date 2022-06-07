@@ -1,0 +1,113 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "version": "1.0.0",
+    "title": "Translation-joke api",
+    "description": "Swagger Api Docs For Rovarspraket translation and joke api",
+    "contact": {
+      "email": "suvrajit.cse2016@gmail.com"
+    }
+  },
+
+  "schemes": ["http"],
+
+  "paths": {
+    "/api/joke-of-the-day": {
+      "get": {
+        "tags": ["Joke"],
+        "summary": "Joke of the day",
+        "description": "",
+        "consumes": ["application/json"],
+        "produces": ["application/json"],
+
+        "responses": {
+          "200": {
+            "description": "successful operation"
+          },
+          "404": {
+            "description": "Not Found"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      }
+    },
+
+    "/api/translate/normal": {
+      "post": {
+        "tags": ["Rovarspraket translation"],
+        "description": "This api will translet normal text to Rovarspraket text",
+        "consumes": ["application/json"],
+        "produces": ["application/json"],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "description": "Translation text",
+            "required": true,
+            "schema": {
+              "type": "object",
+              "properties": {
+                "text": {
+                  "type": "string",
+                  "example": "Hello i am suvrajit"
+                }
+              }
+            }
+          }
+        ],
+
+        "responses": {
+          "200": {
+            "description": "successful operation"
+          },
+          "404": {
+            "description": "Not Found"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      }
+    },
+    "/api/translate/rovarsprak": {
+      "post": {
+        "tags": ["Rovarspraket translation"],
+        "description": "This api will translet Rovarspraket text to normal text",
+        "consumes": ["application/json"],
+        "produces": ["application/json"],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "description": "Translation text",
+            "required": true,
+            "schema": {
+              "type": "object",
+              "properties": {
+                "text": {
+                  "type": "string",
+                  "example": "HoHelollolo i amom sosuvovrorajojitot"
+                }
+              }
+            }
+          }
+        ],
+
+        "responses": {
+          "200": {
+            "description": "successful operation"
+          },
+          "404": {
+            "description": "Not Found"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      }
+    }
+
+  }
+}
